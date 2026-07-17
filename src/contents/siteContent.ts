@@ -2,8 +2,8 @@ import menu from '../assets/menu01.png';
 
 export const siteContent = {
   site: {
-    title: 'サイト名',
-    description: 'サイト説明',
+    title: 'イタリアンデモ',
+    description: 'イタリアンの飲食店です。',
   },
   header: {
     logo: 'サンプル',
