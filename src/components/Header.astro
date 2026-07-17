@@ -11,9 +11,17 @@ const { content } = Astro.props;
 
 <header class="header">
   <div class="header__inner">
-    <a href="/" class="header-logo">{content.logo}</a>
+    <h1 class="header__logo">
+      <a href="/" class="header-logo">{content.logo}</a>
+    </h1>
     <nav class="header__nav" aria-label="ナビゲーション">
-      {content.navigation.map((item) => <a class={item.isButton ? 'header__button' : 'header__link'} href={item.href}>{item.label}</a>)}
+      {
+        content.navigation.map((item) => (
+          <a class={item.isButton ? 'header__button' : 'header__link'} href={item.href}>
+            {item.label}
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>
