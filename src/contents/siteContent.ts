@@ -11,7 +11,7 @@ export const siteContent = {
       { label: 'sample01', href: '#' },
       { label: 'sample02', href: '#' },
       { label: 'sample03', href: '#' },
-      { label: 'お問い合わせ', href: '#', isButton: true },
+      { label: '123-4567-8910', href: '#', isButton: true },
     ],
   },
   hero: {
@@ -55,8 +55,8 @@ export const siteContent = {
   cta: {
     title: 'お問い合わせ',
     button: {
-      label: 'お問い合わせはこちら',
-      href: 'mailto:example@example.com',
+      label: '123-4567-8910',
+      href: 'tel:12345678910',
     },
   },
   footer: {
