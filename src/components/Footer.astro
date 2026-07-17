@@ -1,0 +1,34 @@
+---
+interface Props {
+  content: {
+    copyright: string;
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <small class="copyright">&copy; {content.copyright}</small>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use '../styles/mixins' as *;
+
+  .footer {
+    width: 100%;
+    padding: 10px 4.5%;
+  }
+
+  .footer {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: end;
+  }
+</style>

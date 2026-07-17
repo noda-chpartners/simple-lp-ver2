@@ -1,0 +1,67 @@
+---
+interface Props {
+  content: {
+    title: string;
+    shop: readonly { label: string; text: string; href?: string }[];
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<section class="section info" id="info">
+  <div class="section__inner">
+    <div class="section__heading">
+      <h2 class="section__title">{content.title}</h2>
+    </div>
+    <dl class="info__list">
+      {
+        content.shop.map((item) => (
+          <div class="info__list_wrap">
+            <dt class="info__list_label">{item.label}</dt>
+            <dd class="info__list_text">
+              {item.href ? (
+                <a href={item.href} class="info__list_link">
+                  {item.text}
+                </a>
+              ) : (
+                item.text
+              )}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/mixins' as *;
+
+  .info__list {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    margin: 60px auto 0;
+    border-bottom: 1px solid #333;
+  }
+
+  .info__list_wrap {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #333;
+  }
+
+  .info__list_label {
+    flex-shrink: 0;
+    width: 8em;
+    margin: 0;
+  }
+
+  .info__list_text {
+    flex: 1;
+    margin: 0;
+  }
+</style>

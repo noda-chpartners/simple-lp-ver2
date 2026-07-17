@@ -1,0 +1,50 @@
+---
+interface Props {
+  content: {
+    logo: string;
+    navigation: readonly { label: string; href: string; isButton?: boolean }[];
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="header-logo">{content.logo}</a>
+    <nav class="header__nav" aria-label="ナビゲーション">
+      {content.navigation.map((item) => <a class={item.isButton ? 'header__button' : 'header__link'} href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '../styles/mixins' as *;
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 4.5%;
+    background-color: #fff;
+  }
+
+  .header__inner {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .header__nav {
+    display: flex;
+    gap: 30px;
+  }
+
+  @include BP {
+    .header__nav {
+      display: none;
+    }
+  }
+</style>

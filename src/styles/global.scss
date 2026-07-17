@@ -1,0 +1,32 @@
+html {
+  width: 100%;
+}
+
+body {
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  width: 100%;
+  padding: 40px 4.5%;
+}
+
+.section__inner {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.section__heading {
+  text-align: center;
+}

@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  content: {
+    title: string;
+    items: readonly { label: string; price: number; image: ImageMetadata; alt: string }[];
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<section class="section menu" id="menu">
+  <div class="section__inner">
+    <div class="section__heading">
+      <h2 class="section__title">{content.title}</h2>
+    </div>
+    <div class="section__grid">
+      {
+        content.items.map((item) => (
+          <article class="item__card">
+            <Image src={item.image} alt={item.alt} />
+            <h3 class="menu__label">{item.label}</h3>
+            <p class="menu__price">¥{item.price}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/mixins' as *;
+
+  .section__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .item__card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include BP {
+    .section__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

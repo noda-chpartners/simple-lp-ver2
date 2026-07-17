@@ -1,0 +1,38 @@
+---
+interface Props {
+  content: {
+    title: string;
+    button: {
+      label: string;
+      href: string;
+    };
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<section class="cta" id="cta">
+  <div class="section__inner">
+    <div class="section__heading">
+      <h2 class="section__title">{content.title}</h2>
+    </div>
+    <a href={content.button.href} class="cta__button">
+      {content.button.label}
+    </a>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/mixins' as *;
+
+  .cta__button {
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    margin: 60px auto 0;
+    padding: 10px;
+    border: 1px solid #333;
+  }
+</style>
+
